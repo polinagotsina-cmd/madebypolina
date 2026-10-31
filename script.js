@@ -65,7 +65,7 @@ popup.addEventListener('click', e => {
   if (e.target === popup && pressedOnBackdrop) closePopup();
 });
 
-document.querySelector('.btn_oval').addEventListener('click', openPopup);
+document.querySelector('.header_btn').addEventListener('click', openPopup);
 popup.querySelector('.popup_close').addEventListener('click', closePopup);
 popup.querySelector('.popup_done').addEventListener('click', closePopup);
 
