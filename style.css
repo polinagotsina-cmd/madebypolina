@@ -1397,3 +1397,399 @@ html.is-locked body {
     border-radius: 22px;
   }
 }
+
+/* Prices: "What working with me looks like" */
+
+.prices {
+  padding-block: 12.3vw 8.4vw;
+  background-color: white;
+}
+
+.prices_top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.prices .h2_regular {
+  font-size: inherit;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.prices .prices_lead {
+  font-size: 22px;
+  text-align: center;
+}
+
+.prices_cats {
+  width: 25.1vw;
+  min-width: 280px;
+  height: auto;
+  display: block;
+}
+
+.prices_heading {
+  margin: 16.8vw 0 3.5vw;
+  font-family: 'Instrument Serif', serif;
+  font-size: 5.92vw;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--grey);
+}
+
+.prices_phone_br {
+  display: none;
+}
+
+/* Clips the side images at the screen edge. Their positions are in vw,
+   measured from the top of the folder */
+.prices_stage {
+  position: relative;
+  overflow-x: clip;
+  --prices_ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --prices_ease_soft: cubic-bezier(0.22, 1.3, 0.36, 1); /* same, with a slight overshoot */
+}
+
+.prices_deco img {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--x) * 1vw);
+  top: calc(var(--y) * 1vw);
+  width: calc(var(--w) * 1vw);
+  height: auto;
+  transform: translate(-50%, -50%) rotate(var(--r, 0deg));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.prices_deco.is-active img {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --out: how far an image travels to leave the screen at its edge.
+   --delay staggers them: 60ms between images on one side, and the right side
+   starts 30ms after the left. PRICES_OUT and PRICES_IN in script.js
+   have to match these timings */
+.deco_left { --out: calc((var(--x) + var(--w)) * -1vw); --delay: 0ms; }
+.deco_right { --out: calc((100 - var(--x) + var(--w)) * 1vw); --delay: 30ms; }
+.deco_left ~ .deco_left { --delay: 60ms; }
+.deco_right ~ .deco_right { --delay: 90ms; }
+
+.prices_deco.is-leaving img {
+  animation: prices_deco_out 0.15s var(--prices_ease) var(--delay) both;
+}
+
+.prices_deco.is-entering img {
+  animation: prices_deco_in 0.27s var(--prices_ease_soft) var(--delay) both;
+}
+
+@keyframes prices_deco_out {
+  to {
+    opacity: 0;
+    transform: translateX(var(--out)) translate(-50%, -50%) rotate(var(--r, 0deg));
+  }
+}
+
+@keyframes prices_deco_in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--out)) translate(-50%, -50%) rotate(var(--r, 0deg));
+  }
+}
+
+.deco_portfolio { --x: 5.46; --y: 12.96; --w: 13.19; --r: 14deg; }
+.deco_cup { --x: 2.78; --y: 26.57; --w: 7.55; }
+.deco_brief { --x: 97.04; --y: 19.07; --w: 14.17; --r: -14deg; }
+.deco_mouse { --x: 93.7; --y: 30.93; --w: 3.89; }
+.deco_audience { --x: 4.26; --y: 5; --w: 10.83; --r: -4deg; }
+.deco_flow { --x: 4.63; --y: 17.78; --w: 14.44; --r: 14deg; }
+.deco_fonts { --x: 95.74; --y: 13.15; --w: 16.2; --r: -12deg; }
+.deco_work { --x: 2.78; --y: 1.48; --w: 10.93; --r: -18deg; }
+.deco_proposal { --x: 4.81; --y: 14.26; --w: 10.56; --r: 14deg; }
+.deco_folder { --x: 95.83; --y: 2.04; --w: 7.36; --r: 20deg; }
+.deco_proposal2 { --x: 94.26; --y: 15.56; --w: 10.97; --r: -15deg; }
+.deco_vscode { --x: 4.44; --y: 13.7; --w: 17.22; --r: 37deg; }
+.deco_figmabar { --x: 100.19; --y: 15.74; --w: 2.59; --r: 25deg; }
+.deco_figma { --x: 96.11; --y: 14.26; --w: 21.16; --r: -21deg; }
+
+.prices_folder {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  width: clamp(640px, 56vw, 1040px);
+  min-height: max(35.7vw, 23em);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(18px, 1.53vw, 26px);
+  color: var(--grey);
+  touch-action: pan-y;
+}
+
+.prices_shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.prices_shape path {
+  fill: #ECECEC;
+  stroke: var(--grey);
+  stroke-width: 1.2;
+}
+
+.prices_shape .is-active {
+  fill: white;
+}
+
+.prices_tabs {
+  position: relative;
+  flex-shrink: 0;
+  height: 1.6em;
+  display: flex;
+}
+
+.prices_tabs_phone {
+  display: none;
+}
+
+.prices_tab {
+  height: 100%;
+  padding: 0 0.7em 0 1.15em;
+  background: none;
+  border: none;
+  font: inherit;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: inherit;
+  cursor: pointer;
+}
+
+.prices_tab:first-child {
+  padding-left: 1em;
+}
+
+.prices_tab:last-child {
+  padding: 0 0.5em 0 0.8em;
+}
+
+.prices_tab[aria-selected="false"]:hover {
+  opacity: 0.6;
+}
+
+.prices_tab:focus-visible,
+.prices_arrow:focus-visible {
+  outline: 1px solid var(--grey);
+  outline-offset: -3px;
+  border-radius: 8px;
+}
+
+.prices_panel {
+  position: relative;
+  flex: 1;
+  padding: 2em 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4em;
+  text-align: center;
+  outline: none;
+}
+
+.prices_panel.is-leaving {
+  animation: prices_text_out 0.2s var(--prices_ease) both;
+}
+
+.prices_panel.is-entering {
+  animation: prices_text_in 0.3s var(--prices_ease) both;
+}
+
+@keyframes prices_text_out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes prices_text_in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.prices_step {
+  max-width: 20em;
+}
+
+.prices_step_wide {
+  max-width: 23.6em;
+}
+
+.prices_step_medium {
+  max-width: 22em;
+}
+
+.prices_step_narrow {
+  max-width: 17.4em;
+}
+
+.prices_step[hidden] {
+  display: none;
+}
+
+.prices .prices_step_title {
+  margin-bottom: 0.45em;
+  font-weight: 600;
+}
+
+.prices_step p + p {
+  margin-top: 1.15em;
+}
+
+.prices_arrow {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--grey);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.prices_arrow:hover {
+  opacity: 0.6;
+}
+
+.prices_arrow_prev {
+  right: calc(100% + 1px);
+}
+
+.prices_arrow_next {
+  left: calc(100% + 1px);
+}
+
+/* Not enough room next to the folder for the side images */
+@media (min-width: 769px) and (max-width: 900px) {
+  .prices_deco {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .prices {
+    padding-block: 28vw 8vw;
+  }
+
+  .prices_top {
+    gap: 4vw;
+  }
+
+  .prices .prices_lead {
+    font-size: max(14px, 4vw);
+  }
+
+  .prices_cats {
+    width: 67vw;
+    min-width: 0;
+  }
+
+  .prices_heading {
+    margin: 34vw 0 24vw;
+    font-size: 15.6vw;
+  }
+
+  .prices_phone_br {
+    display: inline;
+  }
+
+  .prices_folder {
+    width: auto;
+    min-height: 159.5vw;
+    margin-inline: 1.6vw;
+    font-size: max(14px, 4vw);
+  }
+
+  .prices_tabs_desktop {
+    display: none;
+  }
+
+  .prices_tabs_phone {
+    display: flex;
+    font-size: 3.95vw;
+  }
+
+  .prices_tab {
+    padding: 0 1.9vw 0 3vw;
+  }
+
+  .prices_tab:first-child {
+    padding: 0 2.6vw 0 1.6vw;
+  }
+
+  .prices_tab:last-child {
+    padding: 0 1.6vw 0 3.3vw;
+  }
+
+  .prices_panel {
+    padding: 8vw 6vw 12vw;
+    gap: 2.8em;
+  }
+
+  .prices_step,
+  .prices_step_wide,
+  .prices_step_medium,
+  .prices_step_narrow {
+    max-width: 18em;
+  }
+
+  .prices_arrow {
+    display: none;
+  }
+
+  .deco_phone_brief { --x: 13.4; --y: 5.6; --w: 23.4; --r: 18deg; }
+  .deco_phone_figma { --x: 15; --y: -10; --w: 30; --r: 28deg; }
+  .deco_phone_proposal { --x: 86; --y: 2; --w: 20; --r: -13deg; }
+
+  /* These two sit on top of the folder, at its bottom corners */
+  .prices_deco .deco_phone_mouse,
+  .prices_deco .deco_phone_vscode {
+    z-index: 3;
+    top: auto;
+  }
+
+  .prices_deco .deco_phone_mouse { --x: 90; --w: 10; bottom: -10.7vw; }
+  .prices_deco .deco_phone_vscode { --x: 14; --w: 22; --r: 37deg; bottom: -15vw; }
+}
+
+/* No sliding: everything changes at once with a short fade (PRICES_FADE in script.js) */
+@media (prefers-reduced-motion: reduce) {
+  .prices_deco.is-entering img,
+  .prices_panel.is-entering {
+    animation: prices_fade 0.2s ease both;
+  }
+}
+
+@keyframes prices_fade {
+  from {
+    opacity: 0;
+  }
+}

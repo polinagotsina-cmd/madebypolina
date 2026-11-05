@@ -25,7 +25,6 @@
                 <a href="#about">My Approach</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#prices">Prices</a>
-                <a href="#reviews">Reviews</a>
             </nav>
             <button type="button" class="header_btn">Need a website</button>
         </div>
@@ -137,6 +136,8 @@
         </div>
     </section>
 
+    <!-- REVIEWS: hidden for now, restore later -->
+    <!--
    <section class="rewives" id="reviews">
     <div class="rew_up">
         <div class="rev_up_cont">
@@ -195,9 +196,115 @@ I’m so glad I found you! I will happily recommend you to anyone who, like me, 
         </div>
     </div>
    </section>
+    -->
 
-    <!-- TODO: Prices section -->
-    <section class="prices" id="prices"></section>
+    <section class="prices" id="prices">
+        <div class="prices_top">
+            <p class="h2_regular prices_lead">Every project is different,<br>but you’ll always know what<br>comes next.</p>
+            <img src="images/Cats.png" alt="Two kittens with bat wings, the white one wearing a halo" class="prices_cats" width="542" height="318" loading="lazy">
+        </div>
+        <h2 class="prices_heading">What working <br class="prices_phone_br">with me looks like</h2>
+
+        <div class="prices_stage">
+            <!-- Decorative images. data-deco matches the data-deco of a tab -->
+            <div class="prices_deco" data-deco="intro" aria-hidden="true">
+                <img src="images/Portfolio.png" alt="" class="deco_portfolio deco_left" loading="lazy">
+                <img src="images/Frame 121.png" alt="" class="deco_cup deco_left" loading="lazy">
+                <img src="images/Brief.png" alt="" class="deco_brief deco_right" loading="lazy">
+                <img src="images/mouse.png" alt="" class="deco_mouse deco_right" loading="lazy">
+            </div>
+            <div class="prices_deco" data-deco="research" aria-hidden="true">
+                <img src="images/audience.png" alt="" class="deco_audience deco_left" loading="lazy">
+                <img src="images/user flow.png" alt="" class="deco_flow deco_left" loading="lazy">
+                <img src="images/fonts.png" alt="" class="deco_fonts deco_right" loading="lazy">
+            </div>
+            <div class="prices_deco" data-deco="proposal" aria-hidden="true">
+                <img src="images/proposal.png" alt="" class="deco_proposal deco_left" loading="lazy">
+                <img src="images/work.png" alt="" class="deco_work deco_left" loading="lazy">
+                <img src="images/folder ( about us ).png" alt="" class="deco_folder deco_right" loading="lazy">
+                <img src="images/proposal 2.png" alt="" class="deco_proposal2 deco_right" loading="lazy">
+            </div>
+            <div class="prices_deco" data-deco="design" aria-hidden="true">
+                <img src="images/VS code.png" alt="" class="deco_vscode deco_left" loading="lazy">
+                <img src="images/Figma bar.png" alt="" class="deco_figmabar deco_right" loading="lazy">
+                <img src="images/Figma.png" alt="" class="deco_figma deco_right" loading="lazy">
+            </div>
+            <div class="prices_deco" data-deco="phone-start" aria-hidden="true">
+                <img src="images/Brief.png" alt="" class="deco_phone_brief deco_left" loading="lazy">
+                <img src="images/mouse.png" alt="" class="deco_phone_mouse deco_right" loading="lazy">
+            </div>
+            <div class="prices_deco" data-deco="phone-design" aria-hidden="true">
+                <img src="images/Figma.png" alt="" class="deco_phone_figma deco_left" loading="lazy">
+                <img src="images/proposal 2.png" alt="" class="deco_phone_proposal deco_right" loading="lazy">
+                <img src="images/VS code.png" alt="" class="deco_phone_vscode deco_left" loading="lazy">
+            </div>
+
+            <div class="prices_folder">
+                <!-- The folder outline is drawn here by script.js -->
+                <svg class="prices_shape" aria-hidden="true"></svg>
+
+                <!-- data-steps: which steps from the panel below each tab shows -->
+                <div class="prices_tabs prices_tabs_desktop" role="tablist" aria-label="Steps of working together">
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_intro" aria-controls="prices_panel" data-steps="1 2" data-deco="intro">INTRO</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_research" aria-controls="prices_panel" data-steps="3" data-deco="research">RESEARCH</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_proposal" aria-controls="prices_panel" data-steps="4" data-deco="proposal">PROPOSAL</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_design" aria-controls="prices_panel" data-steps="5" data-deco="design">DESIGN</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_launch" aria-controls="prices_panel" data-steps="6 7">LAUNCH</button>
+                </div>
+                <div class="prices_tabs prices_tabs_phone" role="tablist" aria-label="Steps of working together">
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_phone_start" aria-controls="prices_panel" data-steps="1 2 3" data-deco="phone-start">START</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_phone_design" aria-controls="prices_panel" data-steps="4 5" data-deco="phone-design">DESIGN&amp;DEVELOPMENT</button>
+                    <button type="button" class="prices_tab" role="tab" id="prices_tab_phone_launch" aria-controls="prices_panel" data-steps="6 7">LAUNCH</button>
+                </div>
+
+                <div class="prices_panel" id="prices_panel" role="tabpanel" tabindex="0">
+                    <div class="prices_step prices_step_wide" data-step="1">
+                        <h3 class="h2_regular prices_step_title">01 · LET’S SAY HI</h3>
+                        <p class="h2_regular">We chat about your business and what you need. No pressure, no obligations.</p>
+                    </div>
+                    <div class="prices_step prices_step_medium" data-step="2">
+                        <h3 class="h2_regular prices_step_title">02 · A QUICK BRIEF</h3>
+                        <p class="h2_regular">You answer a few simple questions. No jargon, no homework, just the basics about your business and your clients.</p>
+                    </div>
+                    <div class="prices_step" data-step="3" hidden>
+                        <h3 class="h2_regular prices_step_title">03 · RESEARCH</h3>
+                        <p class="h2_regular">I study your audience and competitors: what your clients care about, what worries them and what makes them choose one place over another. These insights become the base of your website.</p>
+                    </div>
+                    <div class="prices_step prices_step_narrow" data-step="4" hidden>
+                        <h3 class="h2_regular prices_step_title">04 · YOUR PROPOSAL</h3>
+                        <p class="h2_regular">We talk on a call or in chat, whatever is easier for you.</p>
+                        <p class="h2_regular">I share what I found and how I’d use it on your website, with a clear timeline and price for your business.</p>
+                    </div>
+                    <div class="prices_step prices_step_narrow" data-step="5" hidden>
+                        <h3 class="h2_regular prices_step_title">05 · DESIGN, STEP BY STEP</h3>
+                        <p class="h2_regular">I start with a few options for the first screen, and we choose one together.</p>
+                        <p class="h2_regular">Then I design the rest, and we approve it step by step. You can peek into my Figma anytime to see how it’s going. Revisions are unlimited, within reason&nbsp;🙂</p>
+                    </div>
+                    <div class="prices_step prices_step_wide" data-step="6" hidden>
+                        <h3 class="h2_regular prices_step_title">06 · LAUNCH</h3>
+                        <p class="h2_regular">I build the website in code, publish it and connect your domain if you need one. Then I set up Google Analytics, Search Console and SEO, so people can actually find you.</p>
+                    </div>
+                    <div class="prices_step prices_step_wide" data-step="7" hidden>
+                        <h3 class="h2_regular prices_step_title">07 · IT’S ALL YOURS</h3>
+                        <p class="h2_regular">You get full access and a simple way to edit the site yourself. And I stay in touch: if something goes wrong or you have a question, just write.</p>
+                    </div>
+                </div>
+
+                <button type="button" class="prices_arrow prices_arrow_prev" aria-label="Previous step">
+                    <svg viewBox="0 0 18 32" width="18" height="32" aria-hidden="true">
+                        <path d="M17 1L2 16L17 31" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    </svg>
+                </button>
+                <button type="button" class="prices_arrow prices_arrow_next" aria-label="Next step">
+                    <svg viewBox="0 0 18 32" width="18" height="32" aria-hidden="true">
+                        <path d="M1 1L16 16L1 31" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- TODO: price cards go here -->
+    </section>
 
     <section class="contacts" id="contacts">
         <img src="images/contacts_bg.png" alt="" class="contacts_bg" width="1280" height="853">
