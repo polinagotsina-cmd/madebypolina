@@ -849,6 +849,11 @@ body {
   .menu_items a[href="#reviews"] {
     display: none;
   }
+
+  /* No room in the phone header: the page is linked from Threads/Instagram */
+  .menu_items .menu_cheat {
+    display: none;
+  }
 }
 
 @media (max-width: 370px) {

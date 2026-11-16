@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NEPVC8W6R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1NEPVC8W6R');
+    </script>
+    <link rel="icon" type="image/png" href="images/dimond.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Free Design Cheat Sheets · Polina Gotsina</title>
+    <meta name="description" content="Free visual cheat sheets for designers: color matching, brand colors, contrast, the color wheel and complementary colors. Swipe through the slides, share them or save them as a PDF.">
+    <link rel="canonical" href="https://polinagotsina-cmd.github.io/madebypolina/cheat-sheets.html">
+
+    <!-- Open Graph (link previews in Threads, Instagram, Telegram etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Polina Gotsina">
+    <meta property="og:title" content="Free Design Cheat Sheets · Polina Gotsina">
+    <meta property="og:description" content="Free visual cheat sheets for designers: colors, fonts, composition and common mistakes.">
+    <meta property="og:url" content="https://polinagotsina-cmd.github.io/madebypolina/cheat-sheets.html">
+    <meta property="og:image" content="https://polinagotsina-cmd.github.io/madebypolina/images/cheatsheets/color-match/1.png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1350">
+    <meta property="og:image:alt" content="Color match cheat sheet cover: two kittens with bat wings on a green blanket">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cheat-sheets.css">
+    <meta name="google-site-verification" content="RgkSU0inns7EfI-c7jFP0YSj8IY6jX4kxmSwcVBRHnc" />
+</head>
+<body class="cs_page">
+
+    <header class="cs_header">
+        <a href="index.html" class="cs_back">
+            <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true">
+                <path d="M38 20H3M17 5L2 20L17 35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            Back
+        </a>
+
+        <h1 class="cs_title">Cheat Sheets</h1>
+
+        <!-- Filled from CHEATSHEET_CATEGORIES in js/cheatsheets.js -->
+        <nav class="cs_tabs" aria-label="Categories"></nav>
+
+        <div class="cs_search" role="search">
+            <label for="cs_search_input" class="cs_visually_hidden">Search cheat sheets</label>
+            <input type="search" id="cs_search_input" class="cs_search_input"
+                   placeholder="ARE YOU LOOKING FOR SOMETHING SPECIFIC?"
+                   data-placeholder-phone="LOOKING FOR SOMETHING?"
+                   autocomplete="off" spellcheck="false">
+            <svg class="cs_search_icon" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+                <circle cx="19" cy="13" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 20L2 30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="cs_main">
+        <!-- Cards are built by js/cheat-sheets-page.js -->
+        <div class="cs_grid" id="cs_grid"></div>
+        <p class="cs_message" id="cs_message" role="status" hidden></p>
+    </main>
+
+    <footer class="cs_footer">
+        <p class="cs_footer_text">New cheat sheets are coming.<br>Follow me so you don’t miss them</p>
+        <div class="cs_footer_links">
+            <!-- TODO: check that this is your Threads profile (Threads usually uses the same username as Instagram) -->
+            <a href="https://www.threads.com/@polina___des" class="btn_outline" target="_blank" rel="noopener">THREADS</a>
+            <a href="https://www.instagram.com/polina___des/" class="btn_outline" target="_blank" rel="noopener">INSTAGRAM</a>
+        </div>
+        <p class="cs_footer_made">Made by Polina Gotsina, web designer. <a href="index.html" class="cs_footer_site">Need a website? →</a></p>
+    </footer>
+
+    <!-- Slides popup -->
+    <dialog class="cs_viewer" aria-labelledby="cs_viewer_title">
+        <h2 class="cs_visually_hidden" id="cs_viewer_title"></h2>
+
+        <div class="cs_viewer_bar">
+            <div class="cs_viewer_actions">
+                <button type="button" class="cs_pill cs_share">
+                    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                        <path d="M8 10V1.5M4.5 5L8 1.5L11.5 5M3 8v6.5h10V8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    </svg>
+                    Share
+                </button>
+                <button type="button" class="cs_pill cs_pdf">
+                    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                        <path d="M8 1.5V10M4.5 6.5L8 10L11.5 6.5M2 14.5h12" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                    </svg>
+                    <span class="cs_pdf_label">Save PDF</span>
+                </button>
+                <span class="cs_toast" role="status" aria-live="polite"></span>
+            </div>
+            <span class="cs_counter" aria-live="polite"></span>
+            <button type="button" class="cs_close" aria-label="Close">
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                    <path d="M1 1L15 15M15 1L1 15" fill="none" stroke="currentColor" stroke-width="1.3"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="cs_stage">
+            <img class="cs_slide" alt="" decoding="async">
+            <button type="button" class="cs_arrow cs_arrow_prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                    <path d="M22 12H3M10 4L2 12L10 20" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                </svg>
+            </button>
+            <button type="button" class="cs_arrow cs_arrow_next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                    <path d="M2 12H21M14 4L22 12L14 20" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="cs_thumbs" aria-label="Slides"></div>
+    </dialog>
+
+<script src="js/cheatsheets.js"></script>
+<script src="js/cheat-sheets-page.js"></script>
+</body>
+</html>

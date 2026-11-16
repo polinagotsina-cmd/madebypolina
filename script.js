@@ -2,12 +2,6 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.heading').classList.add('is-visible');
 });
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    document.querySelector('.widget').classList.add('is-visible');
-  }
-});
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
