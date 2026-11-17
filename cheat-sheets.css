@@ -229,16 +229,52 @@
   outline-offset: 4px;
 }
 
+/* "NEW" folder tab: sticks up above the card's top edge and dips
+   --cs-tab-dip into the image. Sizes are in em, so it scales with the text.
+   ::before / ::after are the concave fillets where the tab meets the card. */
 .cs_badge {
+  --cs-tab-dip: 0.64em;   /* how far the tab reaches into the image */
+  --cs-tab-r: 0.45em;     /* tab corner radius */
+  --cs-tab-fillet: 0.27em;
   position: absolute;
   z-index: 1;
-  top: -18px;
-  left: 24px;
-  padding: 4px 18px 2px;
-  font-size: 20px;
-  line-height: 1.2;
+  top: calc(var(--cs-tab-dip) - 1.65em);
+  left: 0.86em;
+  box-sizing: border-box;
+  height: 1.65em;
+  padding: 0.45em 0.55em 0.2em;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--grey);
   background-color: white;
-  border-radius: 50px 50px 0 0;
+  border-radius: var(--cs-tab-r);
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.cs_badge::before,
+.cs_badge::after {
+  content: "";
+  position: absolute;
+  top: calc(1.65em - var(--cs-tab-dip));   /* the card's top edge */
+  width: var(--cs-tab-fillet);
+  height: var(--cs-tab-fillet);
+}
+
+.cs_badge::before {
+  right: 100%;
+  background: radial-gradient(circle at 0 100%, transparent var(--cs-tab-fillet), white calc(var(--cs-tab-fillet) + 0.5px));
+}
+
+.cs_badge::after {
+  left: 100%;
+  background: radial-gradient(circle at 100% 100%, transparent var(--cs-tab-fillet), white calc(var(--cs-tab-fillet) + 0.5px));
+}
+
+/* Move with the image when the card lifts on hover */
+.cs_card:hover .cs_badge {
+  transform: translateY(-4px);
 }
 
 .cs_card_info {
@@ -323,9 +359,10 @@
 /* ---------- Popup ---------- */
 
 .cs_viewer {
-  /* Slide box: as big as fits the screen, slides are 4:5 or square */
-  --cs-slide-w: min(680px, calc(100vw - 64px), calc((100vh - 200px) * 0.8));
-  --cs-slide-w: min(680px, calc(100vw - 64px), calc((100dvh - 200px) * 0.8));
+  /* Slide box: about the slide's own size, smaller on short screens so the
+     thumbnails and counter stay visible without scrolling. Slides are 4:5 or square */
+  --cs-slide-w: min(520px, calc(100vw - 64px), calc((100vh - 250px) * 0.8));
+  --cs-slide-w: min(520px, calc(100vw - 64px), calc((100dvh - 250px) * 0.8));
   box-sizing: border-box;
   width: auto;
   max-width: none;
@@ -571,6 +608,55 @@
   }
 }
 
+/* Desktop / tablet popup: a centered card the width of the slide.
+   (A modal <dialog> stretches to the full screen with width: auto.)
+   Share + Save PDF and close on top, counter under the thumbnails. */
+@media (min-width: 601px) {
+  .cs_viewer {
+    width: fit-content;
+    padding: 10px;
+  }
+
+  .cs_viewer[open] {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "actions close"
+      "stage stage"
+      "thumbs thumbs"
+      "counter counter";
+  }
+
+  .cs_viewer_bar {
+    display: contents;
+  }
+
+  .cs_viewer_actions {
+    grid-area: actions;
+    padding: 0 0 10px 4px;
+  }
+
+  .cs_close {
+    grid-area: close;
+    align-self: start;
+    margin-top: -2px;
+  }
+
+  .cs_stage {
+    grid-area: stage;
+  }
+
+  .cs_thumbs {
+    grid-area: thumbs;
+  }
+
+  .cs_counter {
+    grid-area: counter;
+    padding: 6px 0 4px;
+    text-align: center;
+  }
+}
+
 /* ---------- Tablet / phone ---------- */
 
 @media (max-width: 1200px) {
@@ -758,6 +844,7 @@
   }
 
   .cs_card_img,
+  .cs_badge,
   .cs_back svg,
   .cs_arrow,
   .cs_toast {
