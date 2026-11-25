@@ -305,82 +305,6 @@
   letter-spacing: -0.03em;
 }
 
-/* ---------- Carousels ---------- */
-/* Cards follow the portfolio cards in style.css (.project_card / .project_cover /
-   .project_title): 24px card radius, 12px padding, 12px image radius, 20px/600 title */
-
-.carousels {
-  margin-top: 120px;
-}
-
-.carousels_title {
-  margin: 0 0 40px;
-  font-family: 'Instrument Serif', serif;
-  font-size: 56px;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.carousels_grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 32px;
-}
-
-.carousel_card {
-  box-sizing: border-box;
-  padding: 12px;
-  border: 1px solid var(--grey);
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-/* Same height for every cover, whatever the PDF page ratio */
-.carousel_cover {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 12px;
-  background-color: #f0f0f0;
-}
-
-.carousel_title {
-  margin: 16px 4px 0;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-/* Slide count: same muted small text as .cs_footer_made */
-.carousel_count {
-  margin: 4px 4px 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  line-height: 1.3;
-  color: #8c8c8c;
-}
-
-.carousel_download {
-  margin: 20px 4px 4px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* .btn_pill is white-on-dark in style.css; this page is light */
-.btn_pill_dark {
-  color: var(--grey);
-  border-color: var(--grey);
-}
-
-.btn_pill_dark:hover {
-  color: white;
-  background-color: var(--grey);
-}
-
 /* ---------- Footer ---------- */
 
 .cs_footer {
@@ -852,19 +776,6 @@
     font-size: 36px;
   }
 
-  .carousels {
-    margin-top: 88px;
-  }
-
-  .carousels_title {
-    margin-bottom: 28px;
-    font-size: 40px;
-  }
-
-  .carousels_grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .cs_message {
     font-size: 17px;
   }
@@ -936,8 +847,7 @@
   .cs_badge,
   .cs_back svg,
   .cs_arrow,
-  .cs_toast,
-  .carousel_download {
+  .cs_toast {
     transition: none;
   }
 }

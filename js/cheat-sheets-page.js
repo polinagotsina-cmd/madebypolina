@@ -18,6 +18,11 @@
     return 'images/cheatsheets/' + sheet.folder + '/' + n + '.png';
   }
 
+  // A bare file name lives in the slides folder; anything with a "/" is a path from the site root
+  function pdfSrc(sheet) {
+    return sheet.pdf.includes('/') ? sheet.pdf : 'images/cheatsheets/' + sheet.folder + '/' + sheet.pdf;
+  }
+
   function slidesLabel(count) {
     return count + (count === 1 ? ' slide' : ' slides');
   }
@@ -80,7 +85,7 @@
       cover.appendChild(badge);
     }
     const img = el('img', 'cs_card_img');
-    img.src = slideSrc(sheet, 1);
+    img.src = sheet.cover || slideSrc(sheet, 1);
     img.alt = 'Cover of the ' + sheet.title + ' cheat sheet';
     img.loading = 'lazy';
     img.decoding = 'async';
@@ -462,7 +467,7 @@
     const sheet = current;
 
     if (sheet.pdf) {
-      downloadFile('images/cheatsheets/' + sheet.folder + '/' + sheet.pdf, sheet.id + '-cheat-sheet.pdf');
+      downloadFile(pdfSrc(sheet), sheet.id + '-cheat-sheet.pdf');
       track('download_pdf', sheet, { pdf_source: 'file' });
       return;
     }

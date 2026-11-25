@@ -16,8 +16,11 @@
     category  one of the ids in CHEATSHEET_CATEGORIES: colors, fonts, composition, mistakes
     slides    how many slides are in the folder
     folder    the folder name inside images/cheatsheets/
-    pdf       (optional) a ready PDF file inside the same folder, e.g. 'color-match.pdf'.
+    pdf       (optional) a ready PDF file inside the same folder, e.g. 'color-match.pdf',
+              or a path from the site root if it lives elsewhere, e.g. 'files/carousels/fonts.pdf'.
               If there's none, the PDF is made from the slides in the browser.
+    cover     (optional) a separate image for the card cover, e.g. 'images/carousels/fonts-cover.webp'.
+              If there's none, slide 1.png is the cover.
     isNew     (optional) true shows the "NEW" label on the card
 
   Cards appear in the same order as in this list.
@@ -66,5 +69,32 @@ window.CHEATSHEETS = [
     category: 'colors',
     slides: 6,
     folder: 'complementary-colors'
+  },
+  {
+    id: 'fonts',
+    title: 'Fonts',
+    category: 'fonts',
+    slides: 5,
+    folder: 'fonts',
+    pdf: 'files/carousels/fonts.pdf',
+    cover: 'images/carousels/fonts-cover.webp'
+  },
+  {
+    id: 'just-use-2-fonts',
+    title: 'Just use 2 fonts',
+    category: 'fonts',
+    slides: 10,
+    folder: 'just-use-2-fonts',
+    pdf: 'files/carousels/just-use-2-fonts.pdf',
+    cover: 'images/carousels/just-use-2-fonts-cover.webp'
+  },
+  {
+    id: 'sans-serif-vs-serif',
+    title: 'Sans serif vs serif',
+    category: 'fonts',
+    slides: 6,
+    folder: 'sans-serif-vs-serif',
+    pdf: 'files/carousels/sans-serif-vs-serif.pdf',
+    cover: 'images/carousels/sans-serif-vs-serif-cover.webp'
   }
 ];
